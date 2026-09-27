@@ -1,11 +1,11 @@
 /**
- * Brand mark — the 8-point chrome "Superconscious" star.
+ * Brand mark — the Metaskills Institute logo.
  *
  * The single source of truth for the logo geometry, shared by the generated
  * icons (`app/icon.tsx`, `app/apple-icon.tsx`) and share images
- * (`app/opengraph-image.tsx`, `app/twitter-image.tsx`). Mirrors
- * `public/assets/showreel/star.svg` (viewBox 0 0 523 523).
+ * (`app/opengraph-image.tsx`, `app/twitter-image.tsx`).
  */
+
 export const STAR_VIEWBOX = "0 0 523 523";
 
 export const STAR_PATH =
@@ -15,6 +15,6 @@ export const STAR_PATH =
 export const BRAND = {
   background: "#000000",
   paper: "#f5f1ec",
-  violet: "#9a73f0",
-  violetDeep: "#34146e",
+  violet: "#1e3a5f",
+  violetDeep: "#0f1f3d",
 } as const;

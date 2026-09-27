@@ -1,7 +1,6 @@
 /**
- * Placeholder content for the Showreel home page ("Prompts that think ahead").
- * Mirrors the copy of the original vanilla showreel. Fed to the view via props
- * so no string is hardcoded in a component.
+ * Placeholder content for the Showreel home page.
+ * Fed to the view via props so no string is hardcoded in a component.
  */
 
 export interface NavLink {
@@ -11,10 +10,8 @@ export interface NavLink {
 
 export interface CatalistContent {
   url: string;
-  /** Headline / subhead split into plain + emphasised (bold) runs. */
   lead: string;
   leadStrong: string;
-  /** Dark card: pill label + title. Light card: search query text. */
   pillLabel?: string;
   pillTitle?: string;
   searchText?: string;
@@ -32,11 +29,10 @@ export interface ShowreelContent {
   brand: string;
   logo: string;
   nav: NavLink[];
-  /** Black CTA pinned to the right of the header bar. */
   headerCta: { label: string; href: string };
   marquee: string[];
-  hero: { 
-    lines: string[]; 
+  hero: {
+    lines: string[];
     templatesTitle: string;
     bottomBlock?: {
       leftText: string;
@@ -46,7 +42,6 @@ export interface ShowreelContent {
   };
   catalistDark: CatalistContent;
   catalistLight: CatalistContent;
-  /** CTA pinned under the 4-card carousel (the second block). */
   carouselCta: {
     button: string;
     href: string;
@@ -54,9 +49,7 @@ export interface ShowreelContent {
   sphere: {
     headingTop: string;
     headingBottom: string[];
-    /** Supporting paragraphs shown in the open sphere scene. */
     body: string[];
-    /** Carousel-face chrome (slot-4 card preview). */
     cardLabel: string;
     cardUrl: string;
     cardHeading: string;
@@ -66,7 +59,6 @@ export interface ShowreelContent {
   };
   cta: {
     heading: string;
-    /** Second heading line, rendered semi-transparent (like the hero subtitle). */
     headingFaded: string;
     sub: string;
     button: string;
@@ -77,95 +69,96 @@ export interface ShowreelContent {
 const A = "/assets/showreel";
 
 export const homeContent: ShowreelContent = {
-  brand: "Superconscious",
-  logo: `${A}/star.svg`,
+  brand: "Metaskills Institute",
+  logo: `${A}/star.png`,
   nav: [
-    { label: "Wearable", href: "#wearable" },
-    { label: "Neural", href: "#neural" },
-    { label: "Programs", href: "#programs" },
-    { label: "Updates", href: "#updates" },
-    { label: "Search", href: "#search" },
+    { label: "Who We Are", href: "#who-we-are" },
+    { label: "What We Do", href: "#what-we-do" },
+    { label: "Programmes", href: "#programmes" },
+    { label: "Track Record", href: "#track-record" },
+    { label: "Contact", href: "#contact" },
   ],
-  headerCta: { label: "Get Started", href: "#get-started" },
+  headerCta: { label: "Get Started", href: "#contact" },
   marquee: [
-    "Templates that work",
-    "Design that sells",
-    "Speed without compromise",
-    "AI prompts on another level",
+    "AI Training",
+    "Cybersecurity",
+    "Algorithmic Trading",
+    "Enterprise AI",
+    "ASEAN Reach",
   ],
   hero: {
-    lines: ["Prompts that", "think ahead"],
-    templatesTitle: "Browse our\ntemplates",
+    lines: ["Capability Building for", "ASEAN Enterprises"],
+    templatesTitle: "The AI Institute for Asia",
     bottomBlock: {
-      leftText: "Turn engagement into conversions, trends into traffic, and views into revenue. All with a team that knows how to make social media work for you.",
-      rightText: "From crafting scroll-stopping content to engineering algorithms we help your brand break through the noise and go viral.",
+      leftText: "Consulting-led AI training and transformation, customised to each organisation and every learner.",
+      rightText: "From leadership alignment to production engineering, we build programmes that create measurable capability — not just attendance.",
       avatars: [
-        "https://i.pravatar.cc/100?img=1",
-        "https://i.pravatar.cc/100?img=2",
-        "https://i.pravatar.cc/100?img=3",
-        "https://i.pravatar.cc/100?img=4",
-        "https://i.pravatar.cc/100?img=5",
-      ]
-    }
+        "https://i.pravatar.cc/100?img=11",
+        "https://i.pravatar.cc/100?img=12",
+        "https://i.pravatar.cc/100?img=13",
+        "https://i.pravatar.cc/100?img=14",
+        "https://i.pravatar.cc/100?img=15",
+      ],
+    },
   },
   catalistDark: {
-    url: "Catalist.co.uk",
-    pillLabel: "Catalist Lendings",
-    pillTitle: "Apply for Loan",
-    lead: "The Ultimate Engine for ",
-    leadStrong: "Business Lending",
+    url: "metaskills.sg",
+    pillLabel: "AI Training & Transformation",
+    pillTitle: "Enterprise AI Programmes",
+    lead: "Build real capability with",
+    leadStrong: "practitioner-led programmes",
   },
   catalistLight: {
-    url: "Catalist.co.uk",
-    searchText: "Analyze impact of lending in Business [Field]",
-    lead: "Use AI-based system analyser — ",
-    leadStrong: "all through one intelligent platform.",
+    url: "metaskills.sg",
+    searchText: "Assess your organisation’s AI readiness with AIRI",
+    lead: "Measure where you are",
+    leadStrong: "before you invest.",
   },
   carouselCta: {
-    button: "Explore the collection",
-    href: "#templates",
+    button: "Explore our programmes",
+    href: "#programmes",
   },
   sphere: {
-    headingTop: "Beyond",
-    headingBottom: ["all", "limits"],
+    headingTop: "Why",
+    headingBottom: ["Metaskills", "Institute"],
     body: [
-      "Superconscious is a neural engine that turns intent into action — anticipating your next move before you make it, across every device you already own.",
-      "One model, every surface: wearable, neural, and beyond. No ceilings, no limits — just intelligence that keeps pace with the way you think.",
+      "Metaskills Institute builds AI capability for enterprises, governments, and institutions across ASEAN. We design programmes around your reality — from leadership alignment to production engineering.",
+      "Our faculty teach at SMU, ISCA, HKU SPACE, NUS and IMD. Our clients include MINDEF, Great Eastern, OCBC, AIA, IMDA, and AI Singapore.",
     ],
-    cardLabel: "Neural Core",
-    cardUrl: "superconscious.ai",
-    cardHeading: "Intelligence, beyond limits",
+    cardLabel: "AIRI Diagnostic",
+    cardUrl: "metaskills.sg",
+    cardHeading: "Know where to invest before you train",
   },
   portfolio: {
     items: [
       {
         year: "2023",
-        client: "logan cee",
-        title: "Archin",
-        discipline: "Architecture Design · Website",
+        client: "MINDEF / SAF",
+        title: "Three-tier AI Roadmap",
+        discipline: "Defence · Leadership · Literacy",
         video: `${A}/portfolio-1.mp4`,
       },
       {
         year: "2024",
-        client: "zumar",
-        title: "Zumar",
-        discipline: "Web Design & Development",
+        client: "SMU Academy",
+        title: "MBA Digital Transformation",
+        discipline: "Academia · Curriculum Design",
         video: `${A}/portfolio-2.mp4`,
       },
       {
         year: "2024",
-        client: "nova",
-        title: "Nova",
-        discipline: "Brand · Motion · Web",
+        client: "IMDA",
+        title: "Vibe Coding Pilot",
+        discipline: "Government · Whole-of-agency",
         video: `${A}/portfolio-3.mp4`,
       },
     ],
   },
   cta: {
-    heading: "Build beyond",
-    headingFaded: "all limits",
-    sub: "Templates, prompts, and tools that think ahead — start shipping faster today.",
-    button: "Get started",
-    href: "#get-started",
+    heading: "Ready when you are",
+    headingFaded: "Let's build your AI capability",
+    sub: "Tell us where AI should make a difference in your organisation, and we will design the programme, the roadmap, and the delivery around it.",
+    button: "Start the conversation",
+    href: "#contact",
   },
 };

@@ -7,18 +7,18 @@
 import { publicEnv } from "@/env";
 
 export const siteConfig = {
-  name: "Superconscious",
+  name: "Metaskills Institute",
   /** Used as the homepage `<title>` suffix and the default share title. */
-  tagline: "Prompts that think ahead",
+  tagline: "AI Training, Cybersecurity & Algorithmic Trading in Singapore",
   description:
-    "Superconscious is a neural engine that turns intent into action — anticipating your next move before you make it, across every device you already own. One model, every surface: wearable, neural, and beyond.",
+    "Metaskills Institute is the AI Institute for Asia — consulting-led AI training and transformation, customised to each organisation and every learner. Accredited by SSG, IBF-SSG, and ACLP.",
   /**
    * Public origin, no trailing slash. Drives canonical URLs, OG tags, the
    * sitemap, and JSON-LD. Set `NEXT_PUBLIC_SITE_URL` in production.
    */
-  url: publicEnv.NEXT_PUBLIC_SITE_URL ?? "https://superconscious.ai",
-  twitterHandle: "@superconscious",
-  author: "Superconscious",
+  url: publicEnv.NEXT_PUBLIC_SITE_URL ?? "https://metaskills.sg",
+  twitterHandle: "@metaskills",
+  author: "Metaskills Institute",
   /** Browser theme-color (address bar / PWA) — matches the page backdrop. */
   themeColor: "#000000",
 } as const;

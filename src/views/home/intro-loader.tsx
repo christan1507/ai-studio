@@ -8,7 +8,7 @@ import { animated, easings, to, useSpring } from "@react-spring/web";
 import { useLoaderStore } from "@/hooks/use-loader";
 import { useScroll } from "@/hooks/smooth-scroll/use-scroll";
 
-const STAR = "/assets/showreel/star.svg";
+const STAR = "/assets/showreel/star.png";
 
 export interface IntroLoaderProps {
   /**
@@ -136,9 +136,10 @@ export const IntroLoader = ({ minDuration = 2600 }: IntroLoaderProps) => {
         <Image
           src={STAR}
           alt=""
-          width={132}
-          height={132}
+          width={180}
+          height={30}
           priority
+          style={{ objectFit: "contain" }}
           className="[filter:drop-shadow(0_0_28px_var(--loader-glow))]"
         />
       </animated.div>

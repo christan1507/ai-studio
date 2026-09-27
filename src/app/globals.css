@@ -40,9 +40,9 @@
   --watermark: rgba(255, 255, 255, 0.85); /* portfolio card watermark */
 
   /* Sphere (slot-4) card face — soft violet mesh gradient */
-  --card-violet: radial-gradient(95% 80% at 50% 28%, #ddd6fe 0%, #9a73f0 38%, #6d28d9 68%, #34146e 100%);
+  --card-violet: radial-gradient(95% 80% at 50% 28%, #e8e0f8 0%, #5b7db3 38%, #2c5f9e 68%, #1e3a5f 100%);
   /* Intro-loader chrome-star halo — the violet core stop of `--card-violet`. */
-  --loader-glow: rgba(154, 115, 240, 0.55);
+  --loader-glow: rgba(91, 125, 179, 0.55);
 
   /* Showreel responsive geometry — DESKTOP defaults (SSR / no-JS fallback).
      `useShowreelLayout` overrides these on `document.documentElement` for
