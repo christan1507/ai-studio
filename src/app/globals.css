@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Design tokens — Showreel ("Prompts that think ahead").
+   A dark, full-bleed, scroll-driven WebGL showreel. Raw values live under
+   :root; @theme inline binds them to Tailwind utilities. Colours are tokenised;
+   the bespoke per-element sizing is viewport-unit based (vmin/vw/vh) to match
+   the original's proportional layout, so it uses arbitrary utilities inline.
+   Never hardcode a hex/rgba in className — add a token here first.
+   ────────────────────────────────────────────────────────────────────────── */
+:root {
+  --background: #000000; /* page backdrop behind the fixed flame shader */
+  --foreground: #f5f1ec; /* default off-white ink */
+
+  /* Surfaces */
+  --ink: #07031a; /* target-block deep navy-black */
+  --pf-card: #14110e; /* portfolio card surface */
+  --cc-search: #161310; /* catalist light-card search bar */
+  --paper: #f5f1ec; /* off-white card/UI text */
+  --paper-alt: #f3f1ec; /* portfolio section ink */
+  --nav-ink: #1a1a1a; /* nav-pill links (on light pill) */
+  --cc-dark-ink: #f5f1ec; /* catalist dark-card ink */
+  --cc-light-ink: #1a1714; /* catalist light-card ink */
+  --cc-light-muted: #9a948d; /* catalist light-card secondary copy */
+
+  /* Header — opaque segmented bar. Base shows through the 1px gaps between
+     containers (reads as hairlines); items are the lightest, the logo container
+     a touch darker, the CTA black. */
+  --nav-surface: #e3e3e3; /* header base / 1px gap colour (neutral grey) */
+  --nav-item: #ffffff; /* link container fill (white) */
+  --nav-logo: #dadada; /* logo container — slightly darker than the items */
+  --nav-cta: #0d0d0d; /* black CTA */
+  --nav-cta-ink: #f4f4f4; /* CTA label */
+  --nav-border: rgba(255, 255, 255, 0.6);
+  --nav-shadow: rgba(0, 0, 0, 0.12);
+  --glass-dark: rgba(40, 36, 33, 0.55); /* catalist dark pill */
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-soft: rgba(255, 255, 255, 0.14);
+  --hairline: rgba(255, 255, 255, 0.28); /* "See All" pill border */
+  --watermark: rgba(255, 255, 255, 0.85); /* portfolio card watermark */
+
+  /* Sphere (slot-4) card face — soft violet mesh gradient */
+  --card-violet: radial-gradient(95% 80% at 50% 28%, #ddd6fe 0%, #9a73f0 38%, #6d28d9 68%, #34146e 100%);
+  /* Intro-loader chrome-star halo — the violet core stop of `--card-violet`. */
+  --loader-glow: rgba(154, 115, 240, 0.55);
+
+  /* Showreel responsive geometry — DESKTOP defaults (SSR / no-JS fallback).
+     `useShowreelLayout` overrides these on `document.documentElement` for
+     portrait phones/tablets. Single source of truth: `utils/showreel/geometry.ts`
+     (keep the numbers here in sync with its `DESKTOP` set). The timeline's
+     pure-string builders and the JSX card/sphere sizes read these so the spring
+     selectors stay stable while the values swap live. */
+  --sr-card-w: 42vmin; /* side-card width (hero card height) */
+  --sr-card-h: 62vmin; /* side-card height (hero card width) */
+  --sr-carousel-r: 27vmin; /* carousel radius (card translateZ) */
+  --sr-flyback: 40vmin; /* carousel fly-back depth */
+  --sr-hero-pad: 8vmin; /* hero full-screen inset (2× stage padding) */
+  --sr-heading-1: 18vmin; /* sphere top heading */
+  --sr-heading-2: 24vmin; /* sphere bottom heading */
+  --sr-sphere-body-w: 52vmin; /* sphere supporting-copy max-width */
+  --sr-sphere-body-text: 2.4vmin; /* sphere supporting-copy text size */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-ink: var(--ink);
+  --color-pf-card: var(--pf-card);
+  --color-cc-search: var(--cc-search);
+  --color-paper: var(--paper);
+  --color-paper-alt: var(--paper-alt);
+  --color-nav-ink: var(--nav-ink);
+  --color-cc-dark-ink: var(--cc-dark-ink);
+  --color-cc-light-ink: var(--cc-light-ink);
+  --color-cc-light-muted: var(--cc-light-muted);
+
+  --color-nav-surface: var(--nav-surface);
+  --color-nav-item: var(--nav-item);
+  --color-nav-logo: var(--nav-logo);
+  --color-nav-cta: var(--nav-cta);
+  --color-nav-cta-ink: var(--nav-cta-ink);
+  --color-nav-border: var(--nav-border);
+  --color-glass-dark: var(--glass-dark);
+  --color-glass-border: var(--glass-border);
+  --color-glass-border-soft: var(--glass-border-soft);
+  --color-hairline: var(--hairline);
+  --color-watermark: var(--watermark);
+
+  /* Zen Kaku Gothic New (geometric sans) + Marck Script (handwritten accent) */
+  --font-sans: var(--font-zen);
+  --font-script: var(--font-marck);
+
+  /* Radii — viewport-proportional, matching the original card geometry. */
+  --radius-btn: 8px; /* buttons + header (fixed 8px, per design request) */
+  --radius-card: 3vmin; /* hero / carousel cards */
+  --radius-pf: 2.5vmin; /* portfolio cards */
+  --radius-slider: 1.6vmin; /* hero image slider */
+  --radius-grid: 12px; /* parallax grid items */
+  --radius-target: 30px; /* target block (pre-flythrough) */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+@layer base {
+  /* Adaptive scaling grid — scales the root font-size with the viewport above
+     1920px (the AdaptiveGrid component takes over). The Showreel layout itself
+     is vmin/vw/vh based, so it stays proportional independently; this only
+     affects any rem-based UI. Keep in sync with grid.config.ts. */
+  html {
+    font-size: 16px;
+  }
+
+  @media (max-width: 1920px) {
+    html {
+      font-size: 0.833333vw; /* 16 * 100 / 1920 */
+    }
+  }
+
+  @media (max-width: 1440px) {
+    html {
+      font-size: 1.111111vw; /* 16 * 100 / 1440 */
+    }
+  }
+
+  @media (max-width: 1024px) {
+    html {
+      font-size: 1.5625vw; /* 16 * 100 / 1024 */
+    }
+  }
+
+  @media (max-width: 640px) {
+    html {
+      font-size: 4.444444vw; /* 16 * 100 / 360 */
+    }
+  }
+}
+
+@layer utilities {
+  /* The Showreel hides scrollbars globally (it is a scroll-driven canvas). */
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html,
+body {
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Lenis smooth scrolling required styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
