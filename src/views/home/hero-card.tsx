@@ -161,7 +161,7 @@ export const HeroCard = memo(({ p, lines, templatesTitle, images, bottomBlock, a
                   <img key={i} src={src} alt="" className="w-8 h-8 rounded-full border border-white/10 object-cover" />
                 ))}
               </div>
-              <span className="text-[14px] font-medium opacity-90 pr-2">Trusted by 4000+ creatives</span>
+              <span className="text-[14px] font-medium opacity-90 pr-2">Trusted by 10,000 professionals</span>
             </div>
             <p className="max-w-lg opacity-90 leading-relaxed text-right text-[15px] pointer-events-auto">
               {bottomBlock.rightText}

@@ -61,7 +61,7 @@ export const SiteHeader = ({ nav, logo, cta }: SiteHeaderProps) => {
         <a
           href="#"
           aria-label="Home"
-          className="flex h-[40px] w-[96px] items-center justify-center rounded-btn bg-nav-logo"
+          className="flex h-[40px] w-[40px] items-center justify-center rounded-btn bg-nav-logo"
         >
           <Hover
             tag="span"
@@ -70,7 +70,7 @@ export const SiteHeader = ({ nav, logo, cta }: SiteHeaderProps) => {
             config={{ tension: 200, friction: 18 }}
             className="flex items-center justify-center"
           >
-            <Image src={logo} alt="" width={72} height={18} priority style={{ objectFit: "contain" }} />
+            <Image src={logo} alt="" width={18} height={18} priority />
           </Hover>
         </a>
 

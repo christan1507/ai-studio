@@ -70,7 +70,7 @@ const A = "/assets/showreel";
 
 export const homeContent: ShowreelContent = {
   brand: "Metaskills Institute",
-  logo: `${A}/star.png`,
+  logo: `${A}/star.svg`,
   nav: [
     { label: "Who We Are", href: "#who-we-are" },
     { label: "What We Do", href: "#what-we-do" },

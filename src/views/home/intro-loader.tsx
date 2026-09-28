@@ -136,8 +136,8 @@ export const IntroLoader = ({ minDuration = 2600 }: IntroLoaderProps) => {
         <Image
           src={STAR}
           alt=""
-          width={180}
-          height={30}
+          width={320}
+          height={52}
           priority
           style={{ objectFit: "contain" }}
           className="[filter:drop-shadow(0_0_28px_var(--loader-glow))]"
