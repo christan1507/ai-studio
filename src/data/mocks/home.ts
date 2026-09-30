@@ -123,7 +123,7 @@ export const homeContent: ShowreelContent = {
     headingBottom: ["Metaskills", "Institute"],
     body: [
       "Metaskills Institute builds AI capability for enterprises, governments, and institutions across ASEAN. We design programmes around your reality — from leadership alignment to production engineering.",
-      "Our faculty teach at SMU, ISCA, HKU SPACE, NUS and IMD. Our clients include MINDEF, Great Eastern, OCBC, AIA, IMDA, and AI Singapore.",
+      "Our faculty teach at ISCA, HKU SPACE, NUS and IMD. Our clients include MINDEF, Great Eastern, OCBC, AIA, IMDA, and AI Singapore.",
     ],
     cardLabel: "AIRI Diagnostic",
     cardUrl: "metaskills.sg",
@@ -140,9 +140,9 @@ export const homeContent: ShowreelContent = {
       },
       {
         year: "2024",
-        client: "SMU Academy",
-        title: "MBA Digital Transformation",
-        discipline: "Academia · Curriculum Design",
+        client: "HKU SPACE",
+        title: "Aviation & Big Data",
+        discipline: "Academia · Postgraduate Certificate",
         video: `${A}/portfolio-2.mp4`,
       },
       {
