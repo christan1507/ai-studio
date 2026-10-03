@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+
+/*
+ * Design language: thin, wide-tracked type on soft translucent panels. The 3D
+ * scene supplies all the colour, so the HUD stays close to monochrome and
+ * leans on blur and opacity for separation rather than borders and fills.
+ */
+
+@theme {
+  --font-sans:
+    'Inter', 'Avenir Next', 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  --color-veil: oklch(0.98 0.005 300 / 0.08);
+  --color-veil-strong: oklch(0.98 0.005 300 / 0.16);
+  --color-ink: oklch(0.99 0.004 300 / 0.94);
+  --color-ink-soft: oklch(0.99 0.004 300 / 0.62);
+  --color-ink-faint: oklch(0.99 0.004 300 / 0.34);
+
+  --animate-rise: rise 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade: fade 0.6s ease both;
+  --animate-breathe: breathe 4s ease-in-out infinite;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: #11142b;
+  color: var(--color-ink);
+  overflow: hidden;
+  /* The game is a drag surface; text selection fights every gesture. */
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+canvas {
+  display: block;
+  touch-action: none;
+}
+
+/* Respect the OS setting at the CSS layer too, not just in the 3D scene. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Utility: the wide-tracked micro-label used throughout the HUD. */
+@utility label-micro {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
