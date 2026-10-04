@@ -1,12 +1,35 @@
 ---
 tags: [meta, changelog]
-updated: 2026-06-27
+updated: 2026-10-04
 ---
 
 # Changelog
 
 Chronological log of notable changes to the project. Newest first.
 This is a human-curated log — not a mirror of `git log`.
+
+## 2026-10-04 (Sibling project added to the repo — `perspective-shift/`)
+
+> [!warning] Not part of this project. Do not apply this vault's rules to it.
+> `perspective-shift/` is a **separate, self-contained game** that happens to live
+> in the same repository. Nothing in `src/` changed, no dependency of
+> `next16-claude-starter` changed, and no architecture here was touched.
+
+- **What it is:** Perspective Shift, a 3D impossible-geometry puzzle game
+  (Monument Valley-style). React + Vite + TypeScript, Three.js via React Three
+  Fiber, Zustand, Tailwind v4, Tone.js. Its own `package.json`, `node_modules`,
+  `tsconfig`, tests and `README.md` — it does not import from this project and
+  this project does not import from it.
+- **Why this note exists:** it deliberately **does not follow this vault's hard
+  rules**, and an agent applying them to it would break it. It is not Next.js, so
+  there are no routes/views or Server Components; motion is `useFrame` mutating
+  three.js transforms per frame (a spring library in the render loop would be the
+  wrong tool and would re-render the scene every frame); and it has CSS keyframes
+  in its own `index.css`. All of that is correct *for that project*.
+- **Where its docs live:** `perspective-shift/README.md` — architecture, the level
+  authoring kit, and how the solvability checker works. That file, not this vault,
+  is its source of truth.
+- Branch `worktree-perspective-shift`; not merged to master and not deployed.
 
 ## 2026-06-29 (Responsive Showreel — tablet & portrait mobile)
 
